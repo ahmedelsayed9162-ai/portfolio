@@ -1,5 +1,5 @@
 # Ahmed Elsayed — Portfolio
 
-Motion design & video editing portfolio.
+معرض أعمال في تصميم الهوية والتغليف والحملات والموشن.
 
-Live site: https://ahmedelsayed9162-ai.github.io/portfolio/
+Live: https://ahmedelsayed9162-ai.github.io/portfolio/
