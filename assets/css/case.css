@@ -1,0 +1,145 @@
+/* ============================================================
+   Case Study Template — shared across project pages
+   Extends site.css. Each page overrides --brand / --brand-2
+   inline in <head> to carry that project's own identity.
+   ============================================================ */
+
+/* ---------- back link ---------- */
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim);transition:color .25s var(--ease);
+}
+.back-link:hover{color:var(--paper)}
+html[dir="rtl"] .back-link svg{transform:scaleX(-1)}
+
+/* ---------- case hero ---------- */
+.case-hero{
+  position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding-block:var(--s6) var(--s5);overflow:hidden;
+}
+.case-hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--brand) 22%, var(--ink) 78%) 0%, var(--ink) 78%),
+    radial-gradient(120% 90% at 85% 0%, color-mix(in srgb, var(--brand) 38%, transparent) 0%, transparent 55%);
+  opacity:.9;
+}
+.case-hero-bg{
+  position:absolute;inset:0;z-index:-1;will-change:transform;
+}
+.case-hero-bg img{
+  width:100%;height:118%;object-fit:cover;object-position:center;
+  opacity:.34;filter:saturate(.85) contrast(1.05);
+}
+.case-hero-in{position:relative;z-index:1}
+.case-eyebrow{
+  display:flex;align-items:center;gap:var(--s2);margin-block-end:var(--s3);
+  font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brand-tint);
+}
+.case-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand-tint)}
+.case-title{
+  font-family:var(--ar-display);font-weight:700;line-height:1.05;letter-spacing:0;
+  font-size:clamp(44px,8vw,124px);color:var(--paper);max-width:16ch;
+}
+html[lang="en"] .case-title{font-family:var(--serif);font-weight:600;letter-spacing:-.02em}
+.case-tagline{
+  font-family:var(--ar-display);font-size:clamp(18px,2.2vw,28px);color:var(--brand-tint);
+  margin-block-start:var(--s2);max-width:42ch;
+}
+html[lang="en"] .case-tagline{font-family:var(--serif);font-style:italic;font-weight:400}
+.case-meta-row{
+  display:flex;flex-wrap:wrap;gap:var(--s4);margin-block-start:var(--s5);
+  padding-block-start:var(--s3);border-block-start:1px solid var(--line);
+}
+.case-meta-row div{display:flex;flex-direction:column;gap:6px}
+.case-meta-row b{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.case-meta-row span{font-family:var(--ar-body);font-size:16px;color:var(--paper)}
+html[lang="en"] .case-meta-row span{font-family:var(--sans);font-weight:300}
+
+/* ---------- case section ---------- */
+.case-sec{padding-block:var(--s6)}
+.case-shead{
+  display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);
+  margin-block-end:var(--s4);padding-block-end:var(--s3);border-block-end:1px solid var(--line);
+}
+.case-shead .idx{font-family:var(--sans);font-size:11px;color:var(--brand-tint);letter-spacing:.1em}
+.case-shead h2{
+  font-family:var(--ar-display);font-weight:700;font-size:clamp(26px,3.4vw,44px);color:var(--paper);
+}
+html[lang="en"] .case-shead h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+.case-lede{
+  font-size:clamp(16px,1.3vw,19px);color:var(--paper-2);max-width:62ch;margin-block-end:var(--s5);
+  line-height:1.9;
+}
+
+/* ---------- gallery grids ---------- */
+.case-gallery{display:grid;gap:var(--s3)}
+.g-2{grid-template-columns:repeat(2,1fr)}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.g-full{grid-template-columns:1fr}
+@media(max-width:820px){ .g-2, .g-3{grid-template-columns:1fr} }
+
+.case-frame{
+  position:relative;overflow:hidden;background:var(--raised);border:1px solid var(--line-soft);
+}
+.case-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.case-frame:hover img{transform:scale(1.035)}
+.r-16x9{aspect-ratio:16/9}
+.r-4x3c{aspect-ratio:4/3}
+.r-1x1c{aspect-ratio:1/1}
+.r-3x4c{aspect-ratio:3/4}
+.case-cap{
+  margin-block-start:10px;font-family:var(--sans);font-size:11px;letter-spacing:.08em;color:var(--dim);
+}
+
+/* character cards on tinted plinth */
+.char-card{
+  background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 14%, var(--ink) 86%), var(--ink));
+  border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;padding:var(--s4);
+}
+.char-card img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(0,0,0,.4))}
+
+/* ---------- video block ---------- */
+.case-video{position:relative;background:#000;overflow:hidden}
+.case-video video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
+.case-video-9x16 video{width:auto;height:min(76vh,760px);max-width:100%;aspect-ratio:9/16;margin-inline:auto;display:block}
+
+/* ---------- stat strip (brand tinted) ---------- */
+.case-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line);
+}
+.case-stats>div{padding:var(--s4) var(--s3);border-inline-start:1px solid var(--line)}
+.case-stats>div:first-child{border-inline-start:0}
+.case-stats b{
+  display:block;font-family:var(--serif);font-size:clamp(32px,3.6vw,52px);font-weight:600;
+  color:var(--brand-tint);line-height:1;letter-spacing:-.02em;margin-block-end:8px;
+  font-variant-numeric:tabular-nums;
+}
+.case-stats span{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+@media(max-width:820px){
+  .case-stats{grid-template-columns:repeat(2,1fr)}
+  .case-stats>div:nth-child(3){border-inline-start:0}
+  .case-stats>div:nth-child(n+3){border-block-start:1px solid var(--line)}
+}
+
+/* ---------- next project ---------- */
+.next-proj{
+  display:block;padding-block:var(--s6);text-align:center;border-block-start:1px solid var(--line);
+  background:linear-gradient(180deg, var(--ink), color-mix(in srgb, var(--brand) 10%, var(--ink) 90%));
+}
+.next-proj .eyebrow{
+  font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);
+  margin-block-end:var(--s2);
+}
+.next-proj h3{
+  font-family:var(--ar-display);font-weight:700;font-size:clamp(32px,6vw,72px);color:var(--paper);
+  transition:color .3s var(--ease);
+}
+html[lang="en"] .next-proj h3{font-family:var(--serif);font-weight:600}
+.next-proj:hover h3{color:var(--brand-tint)}
+
+/* ---------- accent applications ---------- */
+.tags span{border-color:color-mix(in srgb, var(--brand) 40%, var(--line) 60%)}
+.btn-solid{background:var(--brand-tint);color:var(--ink)}
+.btn-line:hover{border-color:var(--brand-tint);color:var(--brand-tint)}
