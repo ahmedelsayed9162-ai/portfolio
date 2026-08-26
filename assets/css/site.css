@@ -51,6 +51,28 @@ body{
   font-family:var(--ar-body);font-size:17px;line-height:1.9;
   font-weight:400;-webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;overflow-x:hidden;
+  position:relative;
+}
+/* ---------- sitewide ambient glow (personal identity background) ----------
+   Fixed behind all pages — a soft blue haze rising out of near-black,
+   sampled from Ahmed's own reference photography. Replaces the old flat
+   --ink fill so the whole site (not just case-hero sections) carries his
+   identity, not just Mafaza/K.Span/etc.'s own brand tint. */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;background:#020207;
+  background-image:
+    radial-gradient(120% 70% at 18% 100%, rgba(3,20,110,.55), transparent 62%),
+    radial-gradient(90% 60% at 88% 8%, rgba(4,26,120,.28), transparent 58%),
+    url('../images/bg/site-glow.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center bottom;
+}
+/* faint top-to-bottom vignette so long text-heavy sections stay legible
+   over the glow without flattening it to solid black */
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(2,2,7,.35) 0%, rgba(2,2,7,.08) 22%, rgba(2,2,7,.08) 78%, rgba(2,2,7,.4) 100%);
 }
 html[lang="en"] body{font-family:var(--sans);line-height:1.75;font-weight:300}
 img,video{display:block;max-width:100%;height:auto}
@@ -94,7 +116,7 @@ h3{font-size:clamp(24px,3.2vw,40px)}
 .nav{position:fixed;inset-block-start:0;inset-inline:0;z-index:60;
   transition:background .35s var(--ease),border-color .35s var(--ease);
   border-block-end:1px solid transparent}
-.nav.solid{background:rgba(8,9,12,.86);backdrop-filter:blur(16px);border-block-end-color:var(--line)}
+.nav.solid{background:rgba(2,2,7,.82);backdrop-filter:blur(16px);border-block-end-color:var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding-block:18px}
 .brand{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
 .nav-links{display:flex;gap:var(--s4);font-family:var(--sans);font-size:12px;
@@ -311,6 +333,9 @@ html[lang="en"] .hero .role{font-family:var(--serif);font-style:italic;line-heig
 .alt-txt .tags{margin-block-start:var(--s3)}
 .alt-med .frame{border:1px solid var(--line)}
 .alt-med.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
+.alt-med.duo{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s2)}
+.alt-med .tri-sub{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
+@media(max-width:560px){.alt-med.tri,.alt-med.duo,.alt-med .tri-sub{grid-template-columns:1fr}}
 @media(max-width:860px){
   .alt{grid-template-columns:1fr;gap:var(--s4);padding-block:var(--s4)}
 }
