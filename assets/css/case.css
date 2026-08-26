@@ -77,8 +77,10 @@ html[lang="en"] .case-shead h2{font-family:var(--serif);font-weight:500;letter-s
 .case-gallery{display:grid;gap:var(--s3)}
 .g-2{grid-template-columns:repeat(2,1fr)}
 .g-3{grid-template-columns:repeat(3,1fr)}
+.g-4{grid-template-columns:repeat(4,1fr)}
 .g-full{grid-template-columns:1fr}
-@media(max-width:820px){ .g-2, .g-3{grid-template-columns:1fr} }
+@media(max-width:820px){ .g-2, .g-3{grid-template-columns:1fr} .g-4{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:520px){ .g-4{grid-template-columns:1fr} }
 
 .case-frame{
   position:relative;overflow:hidden;background:var(--raised);border:1px solid var(--line-soft);
@@ -143,3 +145,74 @@ html[lang="en"] .next-proj h3{font-family:var(--serif);font-weight:600}
 .tags span{border-color:color-mix(in srgb, var(--brand) 40%, var(--line) 60%)}
 .btn-solid{background:var(--brand-tint);color:var(--ink)}
 .btn-line:hover{border-color:var(--brand-tint);color:var(--brand-tint)}
+
+/* ---------- in-page jump nav (long case pages) ---------- */
+.case-jump{
+  position:sticky;top:64px;z-index:20;display:flex;gap:10px;flex-wrap:wrap;
+  padding-block:14px;margin-block-end:var(--s3);
+  background:rgba(2,2,7,.72);backdrop-filter:blur(10px);
+  border-block:1px solid var(--line-soft);
+}
+.case-jump a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--dim);padding:7px 14px;border:1px solid var(--line);white-space:nowrap;
+  transition:.2s var(--ease);
+}
+.case-jump a:hover{color:var(--paper);border-color:var(--brand-tint)}
+@media(max-width:860px){.case-jump{overflow-x:auto;flex-wrap:nowrap;top:0}}
+
+/* ---------- sub-group header (inside a case-sec, for grouped ranges) ---------- */
+.sub-head{
+  display:flex;align-items:baseline;gap:12px;margin-block:var(--s4) var(--s3);
+  padding-block-start:var(--s3);border-block-start:1px solid var(--line-soft);
+}
+.sub-head:first-child{padding-block-start:0;border-block-start:0;margin-block-start:0}
+.sub-head h3{font-size:clamp(18px,2vw,24px);color:var(--paper)}
+.sub-head span{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-tint)}
+
+/* ---------- flavour cards (Metabbal-style: colour-tagged sub-identity) ---------- */
+.flavor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+@media(max-width:860px){.flavor-grid{grid-template-columns:1fr}}
+.flavor-card{border:1px solid var(--line-soft);overflow:hidden;background:var(--raised)}
+.flavor-card .fc-top{
+  aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;padding:var(--s3);
+  background:linear-gradient(180deg, color-mix(in srgb, var(--fc) 30%, var(--ink) 70%), var(--ink));
+}
+.flavor-card .fc-top img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 14px 22px rgba(0,0,0,.4))}
+.flavor-card .fc-tray{aspect-ratio:1;overflow:hidden}
+.flavor-card .fc-tray img{width:100%;height:100%;object-fit:cover}
+.flavor-card .fc-cap{
+  padding:14px 16px;border-block-start:1px solid var(--line-soft);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.flavor-card .fc-cap b{font-family:var(--ar-display);font-size:16px;color:var(--paper);font-weight:700}
+html[lang="en"] .flavor-card .fc-cap b{font-family:var(--serif);font-weight:600}
+.flavor-card .fc-dot{width:10px;height:10px;border-radius:50%;background:var(--fc);flex:none}
+.flavor-card video{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;background:#000}
+
+/* ---------- compact logofolio grid (Other Works: smaller entries) ---------- */
+.logofolio{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2);
+  border-block-start:1px solid var(--line);padding-block-start:var(--s4);margin-block-start:var(--s4)}
+.logofolio a, .logofolio .lf-item{display:block}
+.lf-item{border:1px solid var(--line-soft);background:var(--raised)}
+.lf-item .lf-media{aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:14%}
+.lf-item .lf-media img{max-width:100%;max-height:100%;object-fit:contain}
+.lf-item.lf-photo .lf-media{padding:0;aspect-ratio:4/5}
+.lf-item.lf-photo .lf-media img{width:100%;height:100%;object-fit:cover}
+.lf-cap{padding:10px 12px;border-block-start:1px solid var(--line-soft)}
+.lf-cap b{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:var(--paper);margin-block-end:2px}
+.lf-cap span{font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+@media(max-width:860px){.logofolio{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- loop clip grid (muted autoplay, gif-style) ---------- */
+.loop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+@media(max-width:860px){.loop-grid{grid-template-columns:1fr}}
+.loop-frame{position:relative;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:9/16;background:#000}
+.loop-frame video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- campaign group (social media, grouped by season) ---------- */
+.campaign{border:1px solid var(--line-soft);padding:var(--s3);margin-block-end:var(--s3)}
+.campaign-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s2);margin-block-end:var(--s3);flex-wrap:wrap}
+.campaign-head h4{font-family:var(--ar-display);font-size:clamp(18px,2vw,22px);color:var(--brand-tint);font-weight:700}
+html[lang="en"] .campaign-head h4{font-family:var(--serif);font-weight:600}
+.campaign-head span{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
