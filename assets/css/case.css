@@ -91,6 +91,10 @@ html[lang="en"] .case-shead h2{font-family:var(--serif);font-weight:500;letter-s
 .r-4x3c{aspect-ratio:4/3}
 .r-1x1c{aspect-ratio:1/1}
 .r-3x4c{aspect-ratio:3/4}
+.r-4x5c{aspect-ratio:4/5}
+.r-5x3c{aspect-ratio:5/3}
+.r-3x1c{aspect-ratio:3/1}
+.r-8x5c{aspect-ratio:8/5}
 .case-cap{
   margin-block-start:10px;font-family:var(--sans);font-size:11px;letter-spacing:.08em;color:var(--dim);
 }
@@ -106,6 +110,7 @@ html[lang="en"] .case-shead h2{font-family:var(--serif);font-weight:500;letter-s
 .case-video{position:relative;background:#000;overflow:hidden}
 .case-video video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
 .case-video-9x16 video{width:auto;height:min(76vh,760px);max-width:100%;aspect-ratio:9/16;margin-inline:auto;display:block}
+.case-video-1x1 video{width:auto;height:min(70vh,640px);max-width:100%;aspect-ratio:1/1;margin-inline:auto;display:block}
 
 /* ---------- stat strip (brand tinted) ---------- */
 .case-stats{
@@ -188,7 +193,7 @@ html[lang="en"] .next-proj h3{font-family:var(--serif);font-weight:600}
 .flavor-card .fc-cap b{font-family:var(--ar-display);font-size:16px;color:var(--paper);font-weight:700}
 html[lang="en"] .flavor-card .fc-cap b{font-family:var(--serif);font-weight:600}
 .flavor-card .fc-dot{width:10px;height:10px;border-radius:50%;background:var(--fc);flex:none}
-.flavor-card video{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;background:#000}
+.flavor-card video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;background:#000}
 
 /* ---------- compact logofolio grid (Other Works: smaller entries) ---------- */
 .logofolio{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2);
